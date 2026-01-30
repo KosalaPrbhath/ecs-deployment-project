@@ -1,0 +1,21 @@
+﻿# Terraform
+**/.terraform/*
+**/*.tfstate
+**/*.tfstate.*
+**/.terraform.tfstate.lock.info
+**/*.tfvars
+**/*.tfvars.json
+
+# Node.js (if app is Node.js)
+app/node_modules/
+app/.env
+app/dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,10 @@
+﻿{
+  "name": "ecs-deployment-app",
+  "version": "1.0.0",
+  "description": "ECS Deployment Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {}
+}
