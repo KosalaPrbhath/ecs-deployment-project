@@ -4,12 +4,13 @@ on:
   push:
     branches: [ main ]
 
+# Change: Remove ${{ secrets.XXX }} and use hardcoded values
 env:
-  AWS_REGION: ${{ secrets.AWS_REGION }}
-  ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
-  ECS_SERVICE: ${{ secrets.ECS_SERVICE }}
-  ECS_CLUSTER: ${{ secrets.ECS_CLUSTER }}
-  CONTAINER_NAME: my-ecs-app
+  AWS_REGION: 'us-east-1'  # Hardcoded
+  ECR_REPOSITORY: 'kosala-ecs-app'  # Hardcoded from Terraform output
+  ECS_SERVICE: 'kosala-ecs-app-service'  # Hardcoded from Terraform output
+  ECS_CLUSTER: 'kosala-ecs-app-cluster'  # Hardcoded from Terraform output
+  CONTAINER_NAME: 'app'  # Changed from 'my-ecs-app' to 'app'
 
 jobs:
   deploy:
@@ -25,7 +26,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: 'us-east-1'  # ← CHANGED THIS LINE ONLY
+        aws-region: 'us-east-1'  # Already fixed
 
     - name: Login to Amazon ECR
       id: login-ecr
@@ -46,8 +47,8 @@ jobs:
 
     - name: Download task definition
       run: |
-        aws ecs describe-task-definition \\
-          --task-definition ${{ env.ECR_REPOSITORY }} \\
+        aws ecs describe-task-definition \
+          --task-definition kosala-ecs-app \  # CHANGED THIS LINE
           --query taskDefinition > task-definition.json
 
     - name: Fill in the new image ID in the Amazon ECS task definition
