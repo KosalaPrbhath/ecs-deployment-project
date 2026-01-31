@@ -1,12 +1,12 @@
 {
   "name": "ecs-deployment-app",
   "version": "1.0.0",
-  "description": "ECS Deployment Project",
+  "description": "ECS Deployment Assignment",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^4.22.1"
   }
 }
