@@ -1,15 +1,7 @@
-name: Deploy to AWS 
- 
-on: 
-  push: 
-    branches: [ main ] 
- 
+name: Test 
+on: [push] 
 jobs: 
   test: 
     runs-on: ubuntu-latest 
     steps: 
-      - name: Checkout code 
-        uses: actions/checkout@v3 
- 
-      - name: Hello World 
-        run: echo "GitHub Actions is working!" 
+      - run: echo "Hello" 
