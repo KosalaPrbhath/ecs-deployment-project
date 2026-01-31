@@ -10,7 +10,7 @@ env:
   ECR_REPOSITORY: 'kosala-ecs-app'  # Hardcoded from Terraform output
   ECS_SERVICE: 'kosala-ecs-app-service'  # Hardcoded from Terraform output
   ECS_CLUSTER: 'kosala-ecs-app-cluster'  # Hardcoded from Terraform output
-  CONTAINER_NAME: 'app'  # Changed from 'my-ecs-app' to 'app'
+  CONTAINER_NAME: 'kosala-ecs-app'  
 
 jobs:
   deploy:
